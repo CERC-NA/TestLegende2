@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         #map {
@@ -39,7 +38,6 @@
         <script src="js/leaflet-measure.js"></script>
         <script src="js/proj4.js"></script>
         <script src="js/proj4leaflet.js"></script>
-        <script src="js/leaflet-search.js"></script>
         <script src="data/Rgions_2.js"></script>
         <script src="data/Mask_3.js"></script>
         <script src="data/depNA_4.js"></script>
@@ -61,7 +59,7 @@
             continuousWorld: false,
             worldCopyJump: false, 
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[40.99332539720856,-2.6895284218854663],[46.71044583611313,4.983556962040339]]);
+        }).fitBounds([[42.249119804058886,-3.38793963764255],[47.850090649265965,4.285145746283255]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -360,7 +358,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,255,0.6)',
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_Isodistances10km_5');
@@ -368,7 +366,7 @@
         map.getPane('pane_Isodistances10km_5').style['mix-blend-mode'] = 'normal';
         var layer_Isodistances10km_5 = new L.geoJson(json_Isodistances10km_5, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Isodistances10km_5',
             layerName: 'layer_Isodistances10km_5',
             pane: 'pane_Isodistances10km_5',
@@ -1194,17 +1192,10 @@
             //openedSymbol: '&#8863; &#x1f5c1;',
             //collapseAll: 'Collapse all',
             //expandAll: 'Expand all',
-            collapsed: false, 
+            collapsed: true,
         });
         lay.addTo(map);
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: layer_RGE_ensemble_8,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'domaine'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
         </script>
     </body>
 </html>
